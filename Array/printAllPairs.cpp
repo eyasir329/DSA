@@ -3,14 +3,17 @@
 #include <iostream>
 using namespace std;
 
-void printAllPairs(int arr[],int n){
-    for(int i=0;i<n;i++){
+void printAllPairs(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
         int x = arr[i];
-        for(int j=i+1;j<n;j++){
+        for (int j = i + 1; j < n; j++)
+        {
             int y = arr[j];
-            cout<<x<<","<<y<<endl;
+            cout << x << "," << y << endl;
         }
-        cout<<endl;
+        cout << endl;
     }
 }
 
