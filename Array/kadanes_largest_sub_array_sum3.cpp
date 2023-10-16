@@ -5,6 +5,7 @@
 using namespace std;
 
 void printSubarraySum(int arr[],int n){
+    //kadane's algorithms bigO(n)
     int cs = 0;
     int largest = 0;
 
