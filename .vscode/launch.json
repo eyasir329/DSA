@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/eyasir/Documents/GitHub/DSA/Array",
-      "program": "/home/eyasir/Documents/GitHub/DSA/Array/build/Debug/outDebug",
+      "cwd": "/home/eyasir/Documents/GitHub/DSA/Sorting",
+      "program": "/home/eyasir/Documents/GitHub/DSA/Sorting/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
