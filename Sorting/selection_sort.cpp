@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void selection_sort(int arr[],int n){
+void selection_sort(int arr[],int n){ 
     for(int pos=0;pos<=n-2;pos++){
         int current = arr[pos];
         int min_position = pos;
@@ -17,7 +17,7 @@ void selection_sort(int arr[],int n){
 
 int main(){
     int arr[]={-1,-3,-12,0,7,-10,9,15};
-    int n= sizeof(arr)/sizeof(int);
+    int n = sizeof(arr)/sizeof(int);
 
     cout<<"Primary Array:";
     for(int c:arr){
