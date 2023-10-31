@@ -24,9 +24,34 @@ string compressString(string str){
     return output;
 }
 
+//modify
+void uniqueString(string str){
+    int t=0;
+    int n= str.length();
+    for(int i=0;i<n;i++){
+        int count = 1;
+        int j=i;
+        while(j<n-1){
+            if(str[j+1]==str[i]&&str[i]!='1'){
+                count++;
+                str[j+1]='1';
+            }
+            j++;
+        }
+        if(str[i]!='1'){
+            if(count>=1){
+                t++;
+            }
+        }
+    }
+    
+    cout<<t<<endl;
+}
+
 int main(){
     string str;
     getline(cin,str);
     cout<<compressString(str)<<endl;
+    uniqueString(str);
     return 0;
 }
