@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 
 using namespace std;
 
@@ -116,6 +117,26 @@ void printRange(Node *root,int k1,int k2){
     }
 }
 
+void printRoot2LeafPaths(Node *root,vector<int>&path){
+    if(root==NULL){
+        return;
+    }
+    if(root->left==NULL and root->right==NULL){
+        // print the vector
+        for(int x:path){
+            cout<<x<<"->";
+        }
+        cout<<root->key<<endl;
+    }
+    // rec case
+    path.push_back(root->key);
+    printRoot2LeafPaths(root->left,path);
+    printRoot2LeafPaths(root->right,path);
+    // backtracking
+    path.pop_back();
+    return;
+}
+
 
 int main(){
     Node *root = NULL;
@@ -136,8 +157,11 @@ int main(){
     // root = remove(root,num);
     // cout<<"After deletion :"<<endl;
     // printInorder(root);
-    int k1,k2;
-    cin>>k1>>k2;
-    printRange(root,k1,k2);
+    // int k1,k2;
+    // cin>>k1>>k2;
+    // printRange(root,k1,k2);
+    cout<<endl;
+    vector<int> v;
+    printRoot2LeafPaths(root,v);
     return 0;
 }
