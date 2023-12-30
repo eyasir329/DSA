@@ -37,6 +37,20 @@ void printInorder(Node *root){
     printInorder(root->right);
 } 
 
+// searching
+bool search(Node *root,int key){
+    if(root==NULL){
+        return false;
+    }
+    if(root->key==key){
+        return true;
+    }
+    if(key<root->key){
+        return search(root->left,key);
+    }
+    return search(root->right,key);
+}
+
 int main(){
     Node *root = NULL;
     int arr[] = {8,3,10,1,6,14,4,7,13};
@@ -44,5 +58,14 @@ int main(){
         root = insert(root,x);
     }
     printInorder(root);
+    int num;
+    cout<<endl;
+    cout<<"Enter a key :"<<endl;
+    cin>>num;
+    if(search(root,num)){
+        cout<<"Found it"<<endl;
+    }else{
+        cout<<"Not Found"<<endl;
+    }
     return 0;
 }
