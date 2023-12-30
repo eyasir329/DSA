@@ -99,6 +99,23 @@ Node *remove(Node *root,int key){
     return root;
 }
 
+// print all element of BST which lie in the range k1 and k2
+void printRange(Node *root,int k1,int k2){
+    if(root==NULL){
+        return;
+    }
+    if(root->key>=k1 and root->key<=k2){
+        // call in both sides
+        printRange(root->left,k1,k2);
+        cout<<root->key<<" ";
+        printRange(root->right,k1,k2);
+    }else if(root->key>k2){
+        printRange(root->left,k1,k2);
+    }else{
+        printRange(root->right,k1,k2);
+    }
+}
+
 
 int main(){
     Node *root = NULL;
@@ -107,17 +124,20 @@ int main(){
         root = insert(root,x);
     }
     printInorder(root);
-    int num;
-    cout<<endl;
-    cout<<"Enter a key for deletion:"<<endl;
-    cin>>num;
+    // int num;
+    // cout<<endl;
+    // cout<<"Enter a key for deletion:"<<endl;
+    // cin>>num;
     // if(search(root,num)){
     //     cout<<"Found it"<<endl;
     // }else{
     //     cout<<"Not Found"<<endl;
     // }
-    root = remove(root,num);
-    cout<<"After deletion :"<<endl;
-    printInorder(root);
+    // root = remove(root,num);
+    // cout<<"After deletion :"<<endl;
+    // printInorder(root);
+    int k1,k2;
+    cin>>k1>>k2;
+    printRange(root,k1,k2);
     return 0;
 }
