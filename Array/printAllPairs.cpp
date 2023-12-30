@@ -1,4 +1,3 @@
-// Created on iPad.
 
 #include <iostream>
 using namespace std;
