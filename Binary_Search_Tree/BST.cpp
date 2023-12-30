@@ -51,6 +51,55 @@ bool search(Node *root,int key){
     return search(root->right,key);
 }
 
+// minimum
+Node *findMin(Node *root){
+    while(root->left!=NULL){
+        root = root->left;
+    }
+    return root;
+}
+
+// deletion
+Node *remove(Node *root,int key){
+    if(root==NULL){
+        return NULL;
+    }
+    else if(key<root->key){
+        root->left = remove(root->left,key);
+    }
+    else if(key>root->key){
+        root->right = remove(root->right,key);
+    }
+    else{
+        // when the current node matches with the key
+        // three remove cases
+
+        // No children
+        if(root->left==NULL and root->right==NULL){
+            delete root;
+            root=NULL;
+        }
+        // single children
+        else if(root->left==NULL){
+            Node *temp = root;
+            root = root->right;
+            delete temp;
+        }
+        else if(root->right==NULL){
+            Node *temp = root;
+            root = root->left;
+            delete temp;
+        }else{
+            // two children
+            Node *temp = findMin(root->right);
+            root->key = temp->key;
+            root->right = remove(root->right,temp->key);
+        }
+    }
+    return root;
+}
+
+
 int main(){
     Node *root = NULL;
     int arr[] = {8,3,10,1,6,14,4,7,13};
@@ -60,12 +109,15 @@ int main(){
     printInorder(root);
     int num;
     cout<<endl;
-    cout<<"Enter a key :"<<endl;
+    cout<<"Enter a key for deletion:"<<endl;
     cin>>num;
-    if(search(root,num)){
-        cout<<"Found it"<<endl;
-    }else{
-        cout<<"Not Found"<<endl;
-    }
+    // if(search(root,num)){
+    //     cout<<"Found it"<<endl;
+    // }else{
+    //     cout<<"Not Found"<<endl;
+    // }
+    root = remove(root,num);
+    cout<<"After deletion :"<<endl;
+    printInorder(root);
     return 0;
 }
