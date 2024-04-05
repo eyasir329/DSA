@@ -54,6 +54,20 @@ void addEdge(vector<vector<int>> &adjList, int u, int v)
     adjList[u].push_back(v);
 }
 
+void printAdjList(const vector<vector<int>>& adjList) {
+    int V = adjList.size();
+    for (int i = 0; i < V; ++i) {
+        cout << "Adjacency list of vertex " << i << ": ";
+        for (int j = 0; j < adjList[i].size(); ++j) {
+            cout << adjList[i][j];
+            if (j != adjList[i].size() - 1)
+                cout << " -> ";
+        }
+        cout << endl;
+    }
+}
+
+
 int main()
 {
     int vertices = 5;
@@ -64,6 +78,9 @@ int main()
     addEdge(adjList, 1, 3);
     addEdge(adjList, 1, 4);
     addEdge(adjList, 2, 4);
+    addEdge(adjList, 3, 4);
+
+    printAdjList(adjList);
 
     vector<bool> visited(vertices, false);
 

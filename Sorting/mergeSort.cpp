@@ -49,7 +49,7 @@ int main()
     for (int i = 0; i < n; i++)
         printf("%d ", A[i]);
     printf("\n");
-    MergeSort(A,0,n);
+    MergeSort(A,0,n-1);
     for (int i = 0; i < n; i++)
         printf("%d ", A[i]);
     printf("\n");
